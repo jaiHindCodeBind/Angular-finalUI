@@ -1,0 +1,63 @@
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 70px;
+    padding: 10px;
+    z-index: 10;
+}
+
+.form-focus .form-control {
+    height: 35px;
+    padding: 20px 12px 6px;
+}
+
+.page-wrapper > .content {
+    padding: 10px;
+}
+
+.filter-row .btn {
+    border-radius: 0;
+    min-height: 20px;
+    padding: 7px 5px;
+    text-transform: uppercase;
+    margin-top: 0px;
+    margin-right: 20px;
+}
+ 
+
+.form-focus {
+    display: flex;
+    height: 20px;
+    position: relative;
+   margin-bottom: 5px;
+}
+
+.form-focus.focused .control-label {
+    opacity: 1;
+    font-weight: 300;
+    top: -22px;
+    font-size: 12px;
+    z-index: 1;
+} 
+
+.advSearchBox {
+    width: 100%;
+    margin-left: 4px !important;
+    position: absolute;
+    z-index: 9999;
+    box-shadow: 3px 2px 10px #ccc;
+    margin-top: 19px !important;
+}
+ 
+
+.gridButton {
+    display: inline;
+    float:left;
+    position: absolute;
+    top: 3px;
+    right: 80px;
+}
+ 
+.custom-modal{
+    padding-left:0px !important;
+}

@@ -1,0 +1,53 @@
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 70px;
+    padding: 10px;
+    z-index: 10;
+}
+
+.form-focus .form-control {
+    height: 35px;
+    padding: 20px 12px 6px;
+}
+
+.page-wrapper > .content {
+    padding: 10px;
+}
+
+.page-title {
+    color: #565656;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 5px;
+    margin-bottom: 0px;
+} 
+
+.filter-row .btn {
+    border-radius: 0;
+    min-height: 20px;
+    padding: 7px 5px;
+    text-transform: uppercase;
+    margin-top: 0px;
+    margin-right: 20px;
+}
+.btn {
+    padding: 2px 6px;
+    font-size: 12px;
+    margin-top: 5px;
+} 
+
+.form-focus {
+    display: flex;
+    height: 20px;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.form-focus.focused .control-label {
+    opacity: 1;
+    font-weight: 300;
+    top: -22px;
+    font-size: 12px;
+    z-index: 1;
+}

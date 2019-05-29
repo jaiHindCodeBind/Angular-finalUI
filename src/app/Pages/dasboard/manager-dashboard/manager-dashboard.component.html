@@ -1,0 +1,175 @@
+<div class="page-wrapper">
+  <div class="content container-fluid">
+    <div class="card-box sticky">
+        <div class="row">
+            <div class="col-sm-3">
+              <h4 class="page-title">Manager Dashboard</h4>
+            </div>
+            <div class="row filter-row">
+              <div class="col-sm-2 col-xs-6">  
+                <div class="form-group form-focus focused">
+                  <label class="control-label" style="top: -22px; font-size: 12px;">Emp Code</label>
+                  <input type="text" class="form-control floating typeahead" style="width:100%;">
+                </div>
+              </div>
+              <div class="col-sm-2 col-xs-6">  
+                <div class="form-group form-focus focused">
+                  <label class="control-label">From Date</label>
+                  <input class="form-control datetimepicker" type="text" value="25/02/2019">
+                </div>
+              </div>
+              <div class="col-sm-2 col-xs-6">  
+                <div class="form-group form-focus focused">
+                  <label class="control-label">To Date</label>
+                  <input type="text" class="form-control datetimepicker" value="25/02/2019">
+                </div>
+              </div>
+              <div class="col-sm-2 col-xs-6 advSearch" style="display:none;">  
+                <div class="form-group form-focus focused">
+                    <label class="control-label">Emp Name</label>
+                    <select data-placeholder="Emp Name" class="chosen-select" tabindex="-1" style="display: none;">
+                      <option value=""></option>
+                      <option value="ABC User">ABC User</option>
+                      <option value="AKC User">AKC User</option>
+                      <option value="APC User">APC User</option>
+                      <option value="AMC User">AMC User</option>
+                      <option value="ACC User">ACC User</option>
+                      <option value="APP User">APP User</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-2 col-xs-6 advSearch" style="display:none;">  
+                <div class="form-group form-focus focused">
+                    <label class="control-label">From Type/Name</label>
+                    <select data-placeholder="From Type/Name" class="chosen-select" tabindex="-1" style="display: none;">
+                      <option value=""></option>
+                      <option value="Mutation">Mutation</option>
+                      <option value="Promotion">Promotion</option>
+                      <option value="Salary Increment">Salary Increment</option>
+                      <option value="New Position">New Position</option>
+                      <option value="New Organization">New Organization</option>
+                      <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-1 col-xs-6">  
+                  <a href="#" id="searchPrimaryBtn" class="btn btn-success btn-block" onclick="searchGrid()"> <i class="fa fa-search"> </i> Search </a>  
+                </div>
+              <div class="col-sm-1 text-right pull-right">
+                <a href="#" id="advSearchBtn" class="btn btn-primary rounded pull-right" onclick="advanceSearchDetails()"> <i class="fa fa-plus"></i> Advance Search</a>
+              </div>
+              </div> 
+              <div class="card-box m-0 advSearchBox" style="display:none;">
+              <i class="fa fa-angle-up searchArrow"></i> 
+              <div class="row">
+              <div id="advSearchDetails" class="col-md-12"> 
+                <div class="col-sm-2 col-xs-6">  
+                  <div class="form-group">
+                    <label class="control-label">Legal Entity</label>
+                      <select data-placeholder="Legal Entity" class="chosen-select" tabindex="-1">
+                        <option value=""></option>
+                        <option value="Mutation">Mutation</option>
+                        <option value="Promotion">Promotion</option>
+                        <option value="Salary Increment">Salary Increment</option>
+                        <option value="New Position">New Position</option>
+                        <option value="New Organization">New Organization</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-xs-6">  
+                  <div class="form-group">
+                    <label class="control-label">SBU</label>
+                      <select data-placeholder="SBU" class="chosen-select" tabindex="-1">
+                        <option value=""></option>
+                        <option value="Mutation">Mutation</option>
+                        <option value="Promotion">Promotion</option>
+                        <option value="Salary Increment">Salary Increment</option>
+                        <option value="New Position">New Position</option>
+                        <option value="New Organization">New Organization</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-xs-6">  
+                  <div class="form-group">
+                    <label class="control-label">Brand</label>
+                      <select data-placeholder="Brand" class="chosen-select" tabindex="-1">
+                        <option value=""></option>
+                        <option value="Mutation">Mutation</option>
+                        <option value="Promotion">Promotion</option>
+                        <option value="Salary Increment">Salary Increment</option>
+                        <option value="New Position">New Position</option>
+                        <option value="New Organization">New Organization</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-xs-6">  
+                  <div class="form-group">
+                    <label class="control-label">Department</label>
+                      <select data-placeholder="Department" class="chosen-select" tabindex="-1">
+                        <option value=""></option>
+                        <option value="Mutation">Mutation</option>
+                        <option value="Promotion">Promotion</option>
+                        <option value="Salary Increment">Salary Increment</option>
+                        <option value="New Position">New Position</option>
+                        <option value="New Organization">New Organization</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </div>
+                </div>  
+                <div class="col-sm-2 col-xs-6">  
+                  <div class="form-group">
+                    <label class="control-label">Store</label>
+                      <select data-placeholder="Store" class="chosen-select" tabindex="-1">
+                        <option value=""></option>
+                        <option value="Mutation">Mutation</option>
+                        <option value="Promotion">Promotion</option>
+                        <option value="Salary Increment">Salary Increment</option>
+                        <option value="New Position">New Position</option>
+                        <option value="New Organization">New Organization</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </div>
+                </div> 
+                <div class="col-sm-2 col-xs-6">  
+                  <div class="form-group">
+                    <label class="control-label">Work Location</label>
+                      <select data-placeholder="Work Location" class="chosen-select" tabindex="-1">
+                        <option value=""></option>
+                        <option value="Mutation">Mutation</option>
+                        <option value="Promotion">Promotion</option>
+                        <option value="Salary Increment">Salary Increment</option>
+                        <option value="New Position">New Position</option>
+                        <option value="New Organization">New Organization</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-xs-6">  
+                  <div class="form-group">
+                    <label class="control-label">Employment Status</label>
+                      <select data-placeholder="Work Location" class="chosen-select" tabindex="-1">
+                        <option value=""></option>
+                        <option value="Mutation">Mutation</option>
+                        <option value="Promotion">Promotion</option>
+                        <option value="Salary Increment">Salary Increment</option>
+                        <option value="New Position">New Position</option>
+                        <option value="New Organization">New Organization</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </div>
+                </div> 
+                <div id="searchSecondaryBtn" class="col-md-12">
+                  <div class="col-sm-2 col-xs-6" style="margin-left:40%; margin-top: 5px;">  
+                    <a href="#" class="btn btn-success btn-block text-center" onclick="searchGrid()"> Search </a>  
+                  </div> 
+                </div>
+              </div>
+              </div>
+          </div>
+          </div>
+        </div> 
+  </div>
+</div>

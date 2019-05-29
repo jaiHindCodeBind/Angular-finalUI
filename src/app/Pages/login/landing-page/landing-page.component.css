@@ -1,0 +1,48 @@
+body{
+    background-image: url('../../../../assets/img/mains.jpg');  
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+.account-title-common {
+    font-weight: bold;
+    color: #fff;
+    font-size: 80px;
+    text-align: center;
+    margin: 60px 0 40px;
+}
+
+.card .card-body {
+    padding: 1.25rem 1.75rem;
+}
+
+.bg-success {
+   background-image: url('../../../../assets/img/hrDigi.jpg');
+    background-position: 67px 231px;
+    border: solid 5px #e0dbdb!important;
+}
+
+.border-radius-2 {
+    border-radius: 2rem;
+}
+.d-flex {
+    display: flex !important;
+}
+.btn {
+    padding: 2px 6px;
+    font-size: 12px;
+    margin-top: 5px;
+} 
+.btn-success {
+    background-color: #55ce63;
+    border: 1px solid #55ce63;
+} 
+
+.btnPositionDashborad {
+    font-size: 28px;
+    font-weight: bold;
+    padding-left: 30px;
+    float: right;
+    position: absolute;
+    right: 32px;
+    top: 44px;
+}

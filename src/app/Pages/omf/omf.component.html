@@ -1,0 +1,592 @@
+<div class="page-wrapper">
+  <div class="content container-fluid">
+    <div class="card-box sticky">
+      <div class="row">
+        <div class="col-sm-3">
+          <h4 class="page-title">Search OMF Request</h4>
+        </div>
+        <div class="row filter-row">
+          <div class="col-sm-2 col-xs-6">
+            <div class="form-group form-focus focused">
+              <label class="control-label" style="top: -22px; font-size: 12px;">Emp Code</label>
+              <input type="text" class="form-control floating typeahead" style="width:100%;">
+            </div>
+          </div>
+          <div class="col-sm-2 col-xs-6">
+            <my-date-picker [options]="myDatePickerOptions" placeholder="From"></my-date-picker>
+          </div>
+          <div class="col-sm-2 col-xs-6">
+            <my-date-picker [options]="myDatePickerOptions" placeholder="To"></my-date-picker>
+          </div>
+          <div class="col-sm-1 col-xs-6">
+            <a href="#" id="searchPrimaryBtn" class="btn btn-success btn-block" onclick="searchGrid()"> <i
+                class="fa fa-search"> </i> Search </a>
+          </div>
+          <div class="col-sm-1 text-right pull-right">
+
+            <button id="advSearchBtn" class="btn btn-primary rounded pull-right" (click)="advanceSearchDetails()"> <i
+                class="fa fa-plus"></i> Advance Search</button>
+          </div>
+        </div>
+        <div class="card-box m-0 advSearchBox" style="display:none;">
+          <i class="fa fa-angle-up searchArrow"></i>
+          <div class="row">
+            <div id="advSearchDetails" class="col-md-12">
+              <div class="col-sm-2  col-xs-6">
+                <div class="form-group">
+                  <label>Legal Entity <span class="text-danger">*</span></label>
+                  <select class="select form-control" required>
+                    <option value="Mutation">Mutation</option>
+                    <option value="Promotion">Promotion</option>
+                    <option value="Salary Increment">Salary Increment</option>
+                    <option value="New Position">New Position</option>
+                    <option value="New Organization">New Organization</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-2  col-xs-6">
+                <div class="form-group">
+                  <label>SBU <span class="text-danger">*</span></label>
+                  <select class="select form-control" required>
+                    <option value="Mutation">Mutation</option>
+                    <option value="Promotion">Promotion</option>
+                    <option value="Salary Increment">Salary Increment</option>
+                    <option value="New Position">New Position</option>
+                    <option value="New Organization">New Organization</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-2  col-xs-6">
+                <div class="form-group">
+                  <label>Brand <span class="text-danger">*</span></label>
+                  <select class="select form-control" required>
+                    <option value="Mutation">Mutation</option>
+                    <option value="Promotion">Promotion</option>
+                    <option value="Salary Increment">Salary Increment</option>
+                    <option value="New Position">New Position</option>
+                    <option value="New Organization">New Organization</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-2  col-xs-6">
+                <div class="form-group">
+                  <label>Department <span class="text-danger">*</span></label>
+                  <select class="select form-control" required>
+                    <option value="Mutation">Mutation</option>
+                    <option value="Promotion">Promotion</option>
+                    <option value="Salary Increment">Salary Increment</option>
+                    <option value="New Position">New Position</option>
+                    <option value="New Organization">New Organization</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-2  col-xs-6">
+                <div class="form-group">
+                  <label>Store <span class="text-danger">*</span></label>
+                  <select class="select form-control" required>
+                    <option value="Mutation">Mutation</option>
+                    <option value="Promotion">Promotion</option>
+                    <option value="Salary Increment">Salary Increment</option>
+                    <option value="New Position">New Position</option>
+                    <option value="New Organization">New Organization</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-2  col-xs-6">
+                <div class="form-group">
+                  <label>Work Location <span class="text-danger">*</span></label>
+                  <select class="select form-control" required>
+                    <option value="Mutation">Mutation</option>
+                    <option value="Promotion">Promotion</option>
+                    <option value="Salary Increment">Salary Increment</option>
+                    <option value="New Position">New Position</option>
+                    <option value="New Organization">New Organization</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-2  col-xs-6">
+                <div class="form-group">
+                  <label>Employment Status <span class="text-danger">*</span></label>
+                  <select class="select form-control" required>
+                    <option value="Mutation">Mutation</option>
+                    <option value="Promotion">Promotion</option>
+                    <option value="Salary Increment">Salary Increment</option>
+                    <option value="New Position">New Position</option>
+                    <option value="New Organization">New Organization</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div id="searchSecondaryBtn" class="col-md-12">
+                <div class="col-sm-2 col-xs-6" style="margin-left:40%; margin-top: 5px;">
+                  <a href="#" class="btn btn-success btn-block text-center" onclick="searchGrid()"> Search </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                OMF Request Details
+              </a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse">
+            <div class="panel-body">
+              <div class="pull-right gridButton">
+                <button class="btn btn-success btn-sm" onclick="viewMutation()" data-toggle="modal"
+                  data-target="#createMutationView"> <i class="fa fa-search-plus"> </i> View </button>
+                <button class="btn btn-warning" onclick="editMutation()" data-toggle="modal"
+                  data-target="#createMutationView"> <i class="fa fa-edit"> </i> Edit</button>
+                <button class="btn btn-danger"> <i class="fa fa-window-close"> </i> Cancel</button>
+                <button class="btn btn-default btn-sm"> <i class="fa fa-question"> </i> Help</button>
+                <a href="javascript:" class="btn btn-primary rounded" data-toggle="modal" data-target="#add_invoice"><i
+                    class="fa fa-plus"></i> Create Mutation Request</a>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                      <table datatable [dtOptions]="dtOptions" class="row-border hover"></table>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="col-sm-5 pageListDisplay"> </div>
+                    <div class="col-sm-7 paginationDisplay"> </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="add_invoice" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog modal-xl">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <div class="modal-content">
+          <div class="modal-header" style="background:transparent;">
+              <div class="card-box">
+               <div class="row">
+                 <div class="col-sm-3">
+                   <h4 class="page-title">Create <span id="formTitleName"> Mutation </span> </h4>
+                  </div>
+                  <div class="col-sm-8 pull-right">
+                   <div class="form-group">
+                     <label class="col-sm-4 col-sm-push-2" style="text-align:right;">Select Form <span class="text-danger">*</span></label>
+                     <select class="col-sm-6" id="omfRequestCreateId" style="padding:5px; float:right; margin-right: 13px;" onchange="omfRequestCreateDD('omfRequestCreateId')">
+                       <option value="Mutation">Mutation</option>
+                       <option value="Mutation with Promotion">Promotion</option>
+                       <option value="Mutation with Promotion">Salary Increment</option>
+                       <option value="Mutation">Change of Position</option>
+                       <option value="Mutation">Change of supervisor</option>
+                       <option value="Mutation">Termination</option>
+                     </select>
+                     </div>
+                   </div>
+                 </div>
+              </div>
+           </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+                <form action="#" name="mutationForm" id="mutationForm">
+                    <div class="card-box col-md-12">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="card-title">
+                            Requester Section
+                          </div>
+                           <div class="col-md-12">
+                            <div class="col-sm-2 col-xs-6">  
+                              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-primary active" style="padding: 6px 8px;">
+                                  <input type="radio" name="options" id="self" autocomplete="off"> Self
+                                </label>
+                                <label class="btn btn-primary" style="padding: 6px 8px;">
+                                  <input type="radio" name="options" id="direct" autocomplete="off">Direct   
+                                </label>
+                                <label class="btn btn-primary" style="padding: 6px 8px;">
+                                  <input type="radio" name="options" id="team" autocomplete="off"> Team
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-sm-2">
+                              <div class="form-group">
+                                <label>Emp Id  <span class="text-danger">*</span></label>
+                                <input class="form-control typeahead" type="number" name="EmployeeId" id="EmployeeId" placeholder="Emp Id">
+                                <div id="alt_EmployeeId" class="ralert"></div>
+                                
+                              </div>
+                            </div>  
+                            <div class="col-sm-2">
+                              <div class="form-group">
+                                <label  class="textLimit" title="Emp Name">Emp Name <span class="text-danger">*</span></label>
+                                <input class="form-control" value="John Nicholas Christian Tarigan" type="text" name="empName" id="empName" placeholder="empName" >
+                                <div id="alt_fieldempName" class="ralert"></div>
+                              </div>
+                            </div> 
+                             
+                            <div class="col-sm-2">
+                              <div class="form-group">
+                                <label  class="textLimit"  title="Select Action">Select Action <span class="text-danger">*</span> </label>
+                                <select class="form-control" id="selectAction">
+                                  <option value="Transfer">Transfer</option>
+                                  <option value="Transfer with promotion">Transfer with promotion</option>
+                                  <option value="Management Decision transfer">Management Decision transfer</option>
+                                  <option value="Transfer with Demotion">Transfer with Demotion</option>
+                                </select>
+                                <div id="alt_fieldselectAction" class="ralert"></div>
+                              </div>
+                            </div> 
+                            <div class="col-sm-2">
+                              <div class="form-group">
+                                <label  class="textLimit" title="Select reason for Action">Select reason for Action <span class="text-danger">*</span> </label>
+                                <select class="form-control" id="selectReasonforAction">
+                                  <option value="Transfwe without promotion">Transfwe without promotion</option>
+                                  <option value="Transfwe with promotion">Transfwe with promotion</option>
+                                </select>
+                                <div id="alt_fieldselectReasonforAction" class="ralert"></div>
+                              </div>
+                            </div>  
+                            <div class="col-sm-2">
+                              <div class="form-group">
+                                <label  class="textLimit" title="Emp Group Name">Emp Group Name <span class="text-danger">*</span> </label>
+                                <select class="form-control" id="empGroupName">
+                                  <option value="Permanent">Permanent</option>
+                                  <option value="Permanent">Permanent</option>
+                                  <option value="Transfwe with promotion">Transfwe with promotion</option>
+                                </select> 
+                                <div id="alt_fieldempGroupName" class="ralert"></div>
+                              </div>
+                            </div>  
+                            <div class="col-sm-2">
+                              <div class="form-group">
+                                <label  class="textLimit" title="Emp sub Group Code">Emp sub Group Code <span class="text-danger">*</span></label>
+                                <input class="form-control" value="1" type="number" name="department" id="empSubGroupCode" placeholder="Emp sub Group Code" >
+                                <div id="alt_fieldempSubGroupCode" class="ralert"></div>
+                              </div>
+                            </div>  
+
+                            <div class="col-sm-2">
+                              <div class="form-group">
+                                <label  class="textLimit" title="Emp sub Group name">Emp sub Group name<span class="text-danger">*</span></label>
+                                <input class="form-control" value="Division Manager" type="text" name="empSubGroupName" id="empSubGroupName">
+                                <div id="alt_fieldempSubGroupName" class="ralert"></div> 
+                              </div>
+                            </div> 
+                            
+                            <div class="col-sm-2">
+                              <div class="form-group">
+                                <label  class="textLimit" title="Emp direct superior ID">	Emp direct superior ID<span class="text-danger">*</span></label>
+                                <input class="form-control" value="12" type="number" name="empDirectSuperiorID" id="empDirectSuperiorID">
+                                <div id="alt_fieldempDirectSuperiorID" class="ralert"></div> 
+                              </div>
+                            </div>
+                            
+                            <div class="col-sm-2">
+                              <div class="form-group">
+                                <label  class="textLimit" title="Emp direct superior Name">	Emp direct superior Name<span class="text-danger">*</span></label>
+                                <input class="form-control" value="'Kiswati" type="text" name="empDirectSuperiorName" id="empDirectSuperiorName">
+                                <div id="alt_fieldempDirectSuperiorName" class="ralert"></div> 
+                              </div>
+                            </div>
+                            
+                            <div class="col-sm-2">
+                              <div class="form-group">
+                                <label  class="textLimit" title="Emp Join date">Emp Join date<span class="text-danger">*</span></label>
+                                 <my-date-picker [options]="FormDatePickerOptions" placeholder="From"></my-date-picker> 
+                                <div id="alt_fieldemployeeJoindate" class="ralert"></div> 
+                              </div>
+                            </div>   
+                            <div class="col-sm-2">
+                              <div class="form-group">
+                                <label  class="textLimit" title="Superior fill in Summary of Duties">Superior fill in Summary of Duties<span class="text-danger">*</span></label>
+                                <input class="form-control" value="Supervising store" type="text" name="superiorSummary" id="superiorSummary">
+                                <div id="alt_fieldsuperiorSummary" class="ralert"></div>  
+                              </div>
+                            </div> 
+                            <div class="col-sm-2">
+                              <div class="form-group">
+                                <label  class="textLimit" title="Emp Effective Date">Emp Effective Date <span class="text-danger">*</span> </label>
+                                 <my-date-picker [options]="FormDatePickerOptions" placeholder="From"></my-date-picker> 
+                                <div id="alt_fieldemployeeEffectivedate" class="ralert"></div>
+                              </div>
+                            </div>  
+                          </div>
+                        </div>
+                      </div> 
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="card-title">
+                            Current
+                          </div>
+                          <div class="col-sm-3">
+                              <div class="form-group">
+                                <label class="textLimit" title="Emp Position Name">Emp Position Name<span class="text-danger">*</span></label>
+                                <input class="form-control" value="Operation Manager" type="text" name="empPositionName" id="empPositionName">
+                                <div id="alt_fieldempPositionName" class="ralert"></div> 
+                              </div>
+                          </div>
+                          <div class="col-sm-3">
+                              <div class="form-group">
+                                <label class="textLimit" title="Emp Org. unit name">Emp Org. unit name<span class="text-danger">*</span></label>
+                                <input class="form-control" value="" type="text" name="employeeOrgeunitname" id="employeeOrgeunitname">
+                                <div id="alt_fieldemployeeOrgeunitname" class="ralert"></div> 
+                              </div>
+                            </div>
+                          <div class="col-sm-3">
+                              <div class="form-group">
+                                <label class="textLimit" title="Emp Company Name">Emp Company Name <span class="text-danger">*</span> </label>
+                                <select class="form-control" id="empCompanyName" name="empCompanyName">
+                                  <option value="PT. Sari Coffee Indonesia">PT. Sari Coffee Indonesia</option>
+                                  <option value="Permanent">Permanent</option>
+                                  <option value="Transfwe with promotion">Transfwe with promotion</option>
+                                </select>
+                                <div id="alt_fieldempCompanyName" class="ralert"></div>  
+                              </div>
+                          </div> 
+                          <div class="col-sm-3">
+                              <div class="form-group">
+                                <label class="textLimit" title="Emp cost center code">Emp cost center code<span class="text-danger">*</span></label>
+                                <input class="form-control" value="GL000000"  type="text" name="employeeCostCenterCode"
+                                 id="employeeCostCenterCode">
+                                <div id="alt_fieldemployeeCostCenterCode" class="ralert"></div>  
+                              </div>
+                            </div>  
+                          <div class="col-sm-3">
+                            <div class="form-group">
+                              <label class="textLimit" title="Emp cost center name">Emp cost center name<span class="text-danger">*</span></label>
+                              <input class="form-control" value="ABC12345" type="text" name="empCostCenterName" id="empCostCenterName">
+                              <div id="alt_fieldempCostCenterName" class="ralert"></div>  
+                            </div>
+                          </div> 
+                           
+                        </div> 
+                         <div class="col-md-6">
+                            <div class="card-title">
+                                To Be Organization
+                            </div>
+                            
+                            <div class="col-sm-3">
+                              <div class="form-group">
+                                <label class="textLimit" title="Emp New Position name">Emp New Position name<span class="text-danger">*</span></label>
+                                <input class="form-control" value="" type="text" name="empNewPositionNamefield" id="empNewPositionNamefield">
+                                <div id="alt_fieldempNewPositionNamefield" class="ralert"></div> 
+                              </div>
+                            </div> 
+                            <div class="col-sm-3">
+                              <div class="form-group">
+                                <label class="textLimit" title="Emp New Org. unit name">Emp New Org. unit name<span class="text-danger">*</span></label>
+                                <input class="form-control" value="" type="text" name="empNewOrgunitnamefield" id="empNewOrgunitnamefield">
+                                <div id="alt_fieldempNewOrgunitnamefield" class="ralert"></div>
+                              </div>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                              <div class="form-group">
+                                <label class="textLimit" title="Emp New Company Name ">Emp New Company Name <span class="text-danger">*</span> </label>
+                                <select class="form-control" id="empNewCompanyNamefield">
+                                  <option value="">PT. Sari Coffee Indonesia</option>
+                                  <option value="PT Sari Food Lestari">PT Sari Food Lestari</option>
+                                  <option value="Pizaa Shop">Pizaa Shop</option>
+                                </select>
+                                <div id="alt_fieldempNewCompanyNamefield" class="ralert"></div>
+                              </div>
+                            </div>  
+                            
+                            <div class="col-sm-3">
+                              <div class="form-group">
+                                <label class="textLimit" title="Emp New cost center code">Emp New cost center code<span class="text-danger">*</span></label>
+                                <input class="form-control" value="AB4565" type="text" name="empNewCostCenterCodefield" 
+                                 id="empNewCostCenterCodefield">
+                                 <div id="alt_fieldempNewCostCenterCodefield" class="ralert"></div>
+                              </div>
+                            </div>  
+                            
+                            <div class="col-sm-3">
+                            <div class="form-group">
+                              <label class="textLimit" title="Emp cost center name">Emp cost center name<span class="text-danger">*</span></label>
+                              <input class="form-control" value="ABC12345" type="text" name="employeeCostCenterCodefield" id="employeeCostCenterCodefield">
+                               <div id="alt_fieldemployeeCostCenterCodefield" class="ralert"></div>
+                            </div>
+                          </div> 
+                            
+                             
+                          </div>
+                        </div>  
+                     </div> 
+                    <div class="card-box col-md-12">
+                         <div class="card-title">
+                           HRBP Section
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="form-group">
+                            <label class="textLimit" title="HRBP fill in new position ">HRBP fill in new position <span class="text-danger">*</span> </label>
+                            <input class="form-control" type="number" name="hrbpFillinNewPositionfield" id="hrbpFillinNewPositionfield" placeholder="HRBP fill in new position "> 
+                            <div id="alt_fieldhrbpFillinNewPositionfield" class="ralert"></div>
+                          </div>
+                        </div> 
+                        <div class="col-sm-2">
+                          <div class="form-group">
+                            <label class="textLimit" title="HRBP fill in new Organization unit">HRBP fill in new Organization unit<span class="text-danger">*</span> </label>
+                            <input class="form-control" type="number" name="hrbpFillinNewOrganizationunitfield" id="hrbpFillinNewOrganizationunitfield" placeholder="HRBP fill in new Organization unit ">
+                            <div id="alt_fieldhrbpFillinNewOrganizationunitfield" class="ralert"></div>
+                          </div>
+                        </div> 
+                        <div class="col-sm-2">
+                          <div class="form-group">
+                            <label class="textLimit" title="HRBP fill in Subrea">HRBP fill in Subrea<span class="text-danger">*</span> </label>
+                            <input class="form-control" type="text" name="hrbpFillinSubreafield" id="hrbpFillinSubreafield" placeholder="HRBP fill in Subrea">
+                            <div id="alt_fieldhrbpFillinSubreafield" class="ralert"></div>
+                          </div>
+                        </div> 
+                        
+                        <div class="col-sm-2">
+                          <div class="form-group">
+                            <label class="textLimit" title="HRBP fill in Payroll Area ">HRBP fill in Payroll Area <span class="text-danger">*</span> </label>
+                            <select class="form-control" id="HRBPfillinPayrollAreafield">
+                              <option value=""> MAA Monthly </option>
+                              <option> MAA DP&TM  </option>
+                              <option> PAL Monthly </option>
+                              <option> PAL DP&TM </option>
+                              <option> MGI Monthly </option>
+                              <option> MGI DP&TM </option>
+                              <option> MAA Monthly </option>
+                              <option> MAP FF DP&TM </option>
+                              <option> AAA Monthly </option>
+                              <option> AAA DP&TM </option>
+                              <option> SBI Monthly </option>
+                              <option> SBI DP&TM </option>
+                              <option> Corporate Monthly </option>
+                              <option> Corporate DP&TM </option>
+                              <option> Corporate Expat </option>
+                              <option> Corporate DM&Above </option>
+                              <option> Travelogue DP&TM </option>
+                              <option> Travelogue Monthly </option>
+                              <option> MZA DP&TM </option>
+                              <option> MZA Monthly </option>
+                              <option> MMA DP&TM </option>
+                              <option> MMA Monthly </option>
+                              <option> DPI Monthly </option>
+                              <option> DPI DP&TM </option>
+                              <option> SCI Monthly </option>
+                              <option> SCI DP&TM </option>
+                              <option> SII Monthly </option>
+                              <option> SII DP&TM </option>
+                              <option> SPI Monthly </option>
+                              <option> SPI DP&TM </option>
+                              <option> PDI Monthly </option>
+                              <option> PDI DP&TM </option>
+                              <option> MBA Monthly </option>
+                              <option> MBA DP&TM </option>
+                              <option> AML Monthly </option>
+                              <option> AML DP&TM </option>
+                              <option> SFL Monthly </option>
+                              <option> SFL DP&TM </option>
+                              <option> MAP Fashion Monthly </option>
+                              <option> MAP Fashion DP&TM </option>
+                              <option> MSS Monthly </option>
+                              <option> MSS DP&TM </option>
+                              <option> CMI Monthly </option> 
+                              <option> CMI DP&TM </option>
+                              <option> PWA Monthly </option>
+                              <option> PWA DP&TM </option>
+                              <option> PFA Monthly </option>
+                              <option> PFA DP&TM </option>
+                              <option> MFA Monthly </option>
+                              <option> MFA DP&TM </option>
+                              <option> SFA Monthly </option>
+                              <option> SFA DP&TM </option>
+                              <option> PBP Monthly </option>
+                              <option> PBP DP&TM </option>
+                              <option> MDF Monthly </option>
+                              <option> MDF DP&TM </option>
+                              <option> SDM Monthly </option>
+                              <option> SDM DP&TM </option> 
+                              <option> BKM Monthly </option>
+                              <option> BKM DP&TM </option>
+                              <option> SRG Monthly </option>
+                              <option> SRG DP&TM </option>
+                              <option> OFA Monthly </option>
+                              <option> OFA DP&TM </option>
+                              <option> MGP Monthly </option>
+                              <option> MGP DP&TM </option>
+                              <option> SNI Monthly </option>
+                              <option> SNI DP&TM </option>
+                              <option> MAPSamsonite Monthly </option>
+                              <option> MAPSamsonite DP&TM </option>
+
+                            </select>
+                            <div id="alt_fieldHRBPfillinPayrollAreaField" class="ralert"></div> 
+                          </div>
+                        </div> 
+                        
+                        <div class="col-sm-2">
+                          <div class="form-group">
+                            <label class="textLimit" title="HRBP fill in pers. Admin">HRBP fill in pers. Admin<span class="text-danger">*</span> </label>
+                            <input class="form-control" type="number" name="HRBPfillinpersAdminfield" id="HRBPfillinpersAdminfield" placeholder="HRBP fill in Subrea">
+                            <div id="alt_fieldHRBPfillinpersAdminfield" class="ralert"></div> 
+                          </div>
+                        </div>  
+                        
+                        <div class="col-sm-2">
+                          <div class="form-group">
+                            <label class="textLimit" title="HRBP fill in Comm. Type">HRBP fill in Comm. Type<span class="text-danger">*</span> </label>
+                            <select class="form-control" id="HRBPfillInCommTypefield">
+                              <option value="">Store</option>
+                              <option>Warehouse</option>
+                              <option>Factory</option>
+                              <option>Office</option>
+                              <option>E-mail</option>
+                              <option>Normal Stop Payment</option>
+                            </select> 
+                            <div id="alt_fieldHRBPfillInCommTypefield" class="ralert"></div> 
+                          </div>
+                        </div> 
+                        <div class="col-sm-2">
+                          <div class="form-group">
+                            <label class="textLimit" title="HRBP fill in Superior ID">HRBP fill in Superior ID<span class="text-danger">*</span> </label>
+                            <input class="form-control" type="number" name="hrbpFillinSuperiorID" id="hrbpFillinSuperiorIDfield" placeholder="HRBP fill in Subrea">
+                            <div id="alt_fieldhrbpFillinSuperiorIDfield" class="ralert"></div> 
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                              <label  class="textLimit" title="Emp Effective Date">Emp Effective Date <span class="text-danger">*</span> </label>
+                               <my-date-picker [options]="FormDatePickerOptions" placeholder="From"></my-date-picker> 
+                              <div id="alt_fieldemployeeEffectivedate" class="ralert"></div>
+                            </div>
+                          </div>   
+                     </div>
+                     <div class="col-md-12">	
+                      <div class="text-center">
+                      <button  class="btn btn-success center-block d-inline" id="saveMutation" name="submit" value="Submit" onclick="sumbmitMutation();" type="submit"> <span>Submit</span>  </button>
+                        <!-- <button type="submit" id="saveMutation" class="" onclick="superiorSubmitApprovel('createMutation')"> Submit </button >*/ -->
+                        <button type="submit" id="saveMutation" class="btn btn-success center-block d-inline" onclick="mutationSaveAsDraftMutation()"> Save As Draft </button>
+                        <button type="submit" id="saveMutation" class="btn btn-success center-block d-inline"> Reset</button>
+                        <!-- <button type="submit" id="saveMutation" class="btn btn-danger center-block d-inline" onclick="mutationApprovelReject()"> Reject</button> --> 
+                        <button type="submit" id="saveMutation" class="btn btn-default center-block d-inline"> Help</button>
+                      </div>  
+                    </div>
+                  </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
